@@ -1,5 +1,5 @@
 
-const TicketPage = () =>{
+const TicketsPage = () =>{
   return <h2 className="text-lg">Tickets Page</h2>
 };
-export default TicketPage;
+export default TicketsPage;
