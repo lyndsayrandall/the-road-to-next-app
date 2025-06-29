@@ -2,6 +2,7 @@ import { LucideKanban } from "lucide-react";
 import Link from "next/link";
 import { homePath, ticketsPath } from "@/paths";
 import { buttonVariants } from "./ui/button";
+import { ThemeSwitcher } from "./theme/theme-switcher";
 
 
 const Header = () => {
@@ -12,14 +13,15 @@ const Header = () => {
                   border-b bg-background/95 backdrop-blur
                   w-full flex py-2.5 px-5 justify-between
                   ">    
-          <div> 
+          <div className="flex align-items-center gap-x-2.5"> 
             <Link href = {homePath()}
                   className={ buttonVariants({variant:"ghost"})}>
                 <LucideKanban />
                 <h1 className = "ml-2 text-lg font-semibold">Ticket Bounty</h1>
             </Link>
           </div>
-          <div> 
+          <div className="flex align-items-center gap-x-2.5"> 
+            <ThemeSwitcher />
             <Link href= {ticketsPath()}
                   className={ buttonVariants({variant:"default"})}>
                
