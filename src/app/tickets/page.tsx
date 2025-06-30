@@ -1,14 +1,29 @@
+"use client";
 
+import { useEffect, useState } from "react";
 import { Heading } from "@/components/heading";
-import { initialTickets } from "@/data";
 import TicketItem from "@/features/components/ticket-item";
+import { getTickets } from "@/features/queries/get-tickets";
+import { Ticket } from "@/features/type";
 
 const TicketsPage = () =>{
+
+  const [tickets, setTickets] = useState<Ticket[]>([])
+
+  useEffect(()=>{
+    const fetchTickets = async () => {
+      const result = await getTickets();
+      setTickets(result);
+    };
+  fetchTickets();
+  }, []);
+
+
   return (
     <div className="flex-1 flex flex-col gap-y-8">
       <Heading title ="Tickets" description=" Displaying all Your tickets in one place"/>
       <div className= "flex-1 flex flex-col items-center gap-y-4 animate-fade-from-top">
-        {initialTickets.map((ticket) => (
+        {tickets.map((ticket) => (
           <TicketItem key = {ticket.id} ticket={ticket} />       
         ))}
       </div>
