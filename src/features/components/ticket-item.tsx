@@ -9,7 +9,7 @@ import {
     CardTitle} from "@/components/ui/card";
 import { ticketPath } from "@/paths";
 import { TICKET_ICONS } from "../constants";
-import { Ticket } from "../type";
+import { Ticket } from "../types";
 
 type TicketItemProps = {
   ticket: Ticket;
@@ -19,6 +19,7 @@ type TicketItemProps = {
 
 
 const TicketItem = ({ ticket, isDetail }: TicketItemProps) =>{
+    
 
     const detailButton =(
             <Button variant="outline" size="icon" asChild>
