@@ -1,7 +1,8 @@
 
 
 import { initialTickets } from "@/data";
-import { Ticket } from "../types";
+import { Ticket } from "@/features/types";
+
 
 
 export const getTicket = async (ticketId :string):Promise<Ticket | null> =>{
