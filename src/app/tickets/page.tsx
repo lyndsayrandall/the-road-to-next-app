@@ -11,10 +11,10 @@ const TicketsPage = async () =>{
     <div className="flex-1 flex flex-col gap-y-8">
       <Heading title ="Tickets" description=" Displaying all Your tickets in one place"/>
       
-      
-      <Suspense fallback = {<Spinner />}>
+      <Spinner />
+      {/* <Suspense fallback = {<Spinner />}>
         <TicketList />
-      </Suspense>
+      </Suspense> */}
 
     </div>
   );
