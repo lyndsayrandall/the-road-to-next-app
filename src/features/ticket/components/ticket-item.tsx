@@ -8,8 +8,8 @@ import {
     CardHeader, 
     CardTitle} from "@/components/ui/card";
 import { ticketPath } from "@/paths";
-import { TICKET_ICONS } from "../constants";
-import { Ticket } from "../types";
+import { TICKET_ICONS } from "../../constants";
+import { Ticket } from "../../types";
 
 type TicketItemProps = {
   ticket: Ticket;
