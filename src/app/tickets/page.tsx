@@ -1,8 +1,8 @@
 
-import { Suspense } from "react";
+// import { Suspense } from "react";
 import { Heading } from "@/components/heading";
 import { Spinner } from "@/components/spinner";
-import { TicketList } from "@/features/components/ticket-list";
+// import { TicketList } from "@/features/components/ticket-list";
 
 
 const TicketsPage = async () =>{
