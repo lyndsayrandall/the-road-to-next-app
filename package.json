@@ -8,9 +8,12 @@
     "start": "next start",
     "lint": "next lint",
     "lint-fix": "next lint --fix",
-    "type": "tsc --noEmit"
+    "type": "tsc --noEmit",
+    "postinstall": "prisma generate",
+    "prisma-seed": "tsx prisma/seed.ts"
   },
   "dependencies": {
+    "@prisma/client": "^6.11.0",
     "@radix-ui/react-dropdown-menu": "^2.1.15",
     "@radix-ui/react-separator": "^1.1.7",
     "@radix-ui/react-slot": "^1.2.3",
@@ -34,7 +37,9 @@
     "eslint": "^9",
     "eslint-config-next": "15.3.2",
     "eslint-plugin-simple-import-sort": "^12.1.1",
+    "prisma": "^6.11.0",
     "tailwindcss": "^4.1.10",
+    "tsx": "^4.20.3",
     "typescript": "^5"
   }
 }
