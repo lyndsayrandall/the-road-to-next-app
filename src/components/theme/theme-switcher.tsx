@@ -9,9 +9,8 @@ const ThemeSwitcher = () => {
     const { theme, setTheme } = useTheme();
 
     return(
-        <>
+        
         <Button
-            className = "justify_center"
             variant="outline"
             size="icon"
             onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
@@ -30,7 +29,7 @@ const ThemeSwitcher = () => {
             />
             <span className="sr-only">Toggle theme</span>
         </Button>
-        </>
+       
     )};
 
 export { ThemeSwitcher };
