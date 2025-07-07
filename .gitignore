@@ -47,5 +47,5 @@ next-env.d.ts
 /src/generated/prisma
 
 #deleted files
-#/Deprecated-Files/*
+/Deprecated-Files/*
 
