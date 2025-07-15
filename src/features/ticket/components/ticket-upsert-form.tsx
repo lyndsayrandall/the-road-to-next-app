@@ -1,33 +1,24 @@
 "use client";
 
 import { Ticket } from "@prisma/client";
-import { LucideLoaderCircle } from "lucide-react";
-import { useTransition } from "react";
-import { Button } from "@/components/ui/button";
+import { SubmitButton } from "@/components/form/submit-button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { upsertTicket } from "../actions/upsert-ticket";
 
 
-type TicketUpsertFormProps ={
-    ticket? : Ticket;
+
+
+type TicketUpsertFormProps = {
+    ticket?: Ticket ;
 };
 
-
-const TicketUpsertForm = ({ticket}: TicketUpsertFormProps) => {
-
-    const [isPending, startTransition] = useTransition();
-
-    const upsertTicketAction = (formData: FormData) =>{
-        startTransition( async() => {
-            await upsertTicket.bind(null,ticket?.id)(formData);
-        });
-    };
-     
+const TicketUpsertForm = ({ ticket }: TicketUpsertFormProps) => {
+         
     return (
         <form 
-            action={upsertTicketAction} 
+            action={upsertTicket.bind(null,ticket?.id)} 
             className= "flex flex-col gap-y-2">
             
 
@@ -39,14 +30,7 @@ const TicketUpsertForm = ({ticket}: TicketUpsertFormProps) => {
             <Textarea id="content" name="content" 
                       defaultValue = {ticket?.content}/>
 
-            <Button disabled={isPending} type="submit">
-                {isPending && 
-                    (<LucideLoaderCircle className="mr-2 h-4 w-4 animate-spin" />
-
-                    )} 
-                {ticket?"Edit" : "Create"} 
-            </Button>
-
+            <SubmitButton label={ticket?"Edit" : "Create"} />
 
 
         </form>
