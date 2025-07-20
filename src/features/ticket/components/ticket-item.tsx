@@ -54,7 +54,7 @@ const TicketItem = ({ ticket, isDetail }: TicketItemProps) =>{
             <Card
             key={ticket.id}
             className="w-full" >
-                <CardHeader>
+            <CardHeader>
                 <CardTitle className= "flex gap-x-2">
                     <span>{TICKET_ICONS[ticket.status]}</span>
                     <span className="truncate">{ticket.title}</span>
@@ -67,6 +67,7 @@ const TicketItem = ({ ticket, isDetail }: TicketItemProps) =>{
                 </span>
                 </CardContent>
             </Card>
+      
             <div className="flex flex-col gap-y-1">
                 {isDetail ? (
                     <>
@@ -78,7 +79,7 @@ const TicketItem = ({ ticket, isDetail }: TicketItemProps) =>{
                         {editButton}
                     </>
                 )}
-            </div>
+            </div>          
         </div>
         
     )
