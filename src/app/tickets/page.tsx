@@ -17,7 +17,7 @@ const TicketsPage = async () => {
         <CardCompact 
           title = "Create Ticket"
           description = "A new ticket will be created."
-          className= " w-full max-w-[420px] self-center"
+          className= " w-full max-w-[600px] self-center"
           content = {<TicketUpsertForm />}
 
         /> 
