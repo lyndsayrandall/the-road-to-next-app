@@ -31,7 +31,7 @@ const TicketUpsertForm = ({ ticket }: TicketUpsertFormProps) => {
     );  
 
     const datePickerImperativeHandleRef = 
-        useRef<ImperativeHandleFromDatePicker>(null);
+        useRef<ImperativeHandleFromDatePicker| null>(null);
     
     const handleSuccess = () =>{
         datePickerImperativeHandleRef.current?.reset();
@@ -65,7 +65,7 @@ const TicketUpsertForm = ({ ticket }: TicketUpsertFormProps) => {
                             (actionState.payload?.get("deadline") as string) ?? 
                             ticket?.deadline
                         }
-                        imperativeHandleRef={datePickerImperativeHandleRef}      
+                        imperativeHandleRef={datePickerImperativeHandleRef as React.RefObject<ImperativeHandleFromDatePicker>}   
                     />
                     <FieldError actionState={actionState} name="deadline" />
                 </div> 
