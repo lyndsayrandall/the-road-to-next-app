@@ -28,7 +28,7 @@ type useConfirmDialogProps = {
   title?: string;
   description?: string;
   action: () => Promise<ActionState>;
-  trigger: React.ReactElement;
+  trigger: React.ReactElement<{ onClick?: React.MouseEventHandler }>;
 };
 
 const useConfirmDialog = ({
