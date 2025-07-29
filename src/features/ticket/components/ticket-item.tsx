@@ -2,7 +2,11 @@
 
 import { Ticket } from "@prisma/client";
 import clsx from "clsx";
-import { LucidePencil, LucideSquareArrowOutUpRight, LucideTrash } from "lucide-react";
+import { 
+    LucideMoreVertical, 
+    LucidePencil, 
+    LucideSquareArrowOutUpRight, 
+} from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { 
@@ -14,7 +18,7 @@ import {
 import { ticketEditPath, ticketPath } from "@/paths";
 import { toCurrencyFromCent } from "@/utils/currency";
 import { TICKET_ICONS } from "../../constants";
-import { deleteTicket } from "../actions/delete-ticket";
+import { TicketMoreMenu } from "./ticket-more-menu";
 
 
 type TicketItemProps = {
@@ -32,6 +36,8 @@ const TicketItem = ({ ticket, isDetail }: TicketItemProps) =>{
             </Link>
         </Button>
     );
+
+
     const editButton =(
         <Button variant="outline" size="icon" asChild>
             <Link prefetch href={ticketEditPath(ticket.id)}>
@@ -41,13 +47,14 @@ const TicketItem = ({ ticket, isDetail }: TicketItemProps) =>{
 
     )
 
-    const deleteButton = (
-        <form action= {deleteTicket.bind(null, ticket.id)}>
-            <Button variant= "outline" size ="icon" >
-                <LucideTrash className = "h-4 w-4" />
-            </Button>
-        </form>
-    );
+
+
+    const moreMenu = <TicketMoreMenu 
+                        ticket={ticket} 
+                        trigger={ 
+                            <Button variant="outline" size="icon">
+                                <LucideMoreVertical className="h-4 w-4" />
+                            </Button>} />;
     return(
         <div className={clsx("w-full  flex gap-x-1",{
             "max-w-[600px]": !isDetail,
@@ -78,7 +85,7 @@ const TicketItem = ({ ticket, isDetail }: TicketItemProps) =>{
                 {isDetail ? (
                     <>
                         {editButton}
-                        {deleteButton}
+                        {moreMenu}
                     </>) :  (
                     <>
                         {detailButton}

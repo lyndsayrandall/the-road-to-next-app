@@ -20,7 +20,7 @@ export const EMPTY_ACTION_STATE: ActionState = {
 
 export const fromErrorToActionState = (
     error: unknown, 
-    formData: FormData
+    formData?: FormData
 ): ActionState  => {
     if (error instanceof z.ZodError) {
         // validation error

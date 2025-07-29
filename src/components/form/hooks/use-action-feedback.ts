@@ -12,7 +12,7 @@ type UseActionFeedBackOptions = {
     onError: (onArgs: OnArgs) => void;
 };
 
-const useActionFeedBackHook = (
+const useActionFeedBack = (
     actionState : ActionState,
     options : UseActionFeedBackOptions
 ) =>{
@@ -34,4 +34,4 @@ const useActionFeedBackHook = (
     },[isUpdate,actionState, options]);
 };
 
-export {useActionFeedBackHook};
+export {useActionFeedBack};
