@@ -44,8 +44,8 @@ const useConfirmDialog = ({
   const dialogTrigger = cloneElement(
     trigger,
     {
-      onClick: () => {
-       
+      onClick: (event: React.MouseEvent) => {
+        console.log(event);
         setIsOpen((state) => !state);
       },
     }
