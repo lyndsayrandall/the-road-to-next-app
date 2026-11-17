@@ -2,7 +2,7 @@
 // static dynamic section of the course.
 export const instant = false;
 
-import { initialTickets } from "../../../data";
+import { initialTickets } from "@/data";
 
 type TicketPageProps = {
   params: Promise<{
