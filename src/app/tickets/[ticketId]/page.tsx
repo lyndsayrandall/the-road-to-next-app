@@ -2,6 +2,9 @@
 // static dynamic section of the course.
 export const instant = false;
 
+
+
+
 import { initialTickets } from "@/data";
 
 type TicketPageProps = {
@@ -20,7 +23,7 @@ const TicketPage = async ({ params }: TicketPageProps) => {
   }
 
   return (
-    <div>
+    <div className = "animate-fade-from-left">
       <h2 className="text-lg">{ticket.title}</h2>
       <p className="text-sm">{ticket.content}</p>
     </div>
