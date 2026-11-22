@@ -3,10 +3,10 @@ import { LucideKanban } from "lucide-react";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Inter } from "next/font/google";
 import Link from "next/link";
+import { Header } from "@/components/header";
 import { buttonVariants } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 import { homePath , ticketsPath } from "@/paths";
-import { Header } from "@/components/header";
 
 const inter = Inter({subsets:['latin'],variable:'--font-sans'});
 

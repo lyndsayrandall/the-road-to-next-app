@@ -5,11 +5,13 @@ export const instant = false;
 
 
 
+import Link from "next/link";
 import { Placeholder } from "@/components/placeholder";
 import { Button } from "@/components/ui/button";
 import { initialTickets } from "@/data";
+import { TicketItem } from "@/features/ticket/components/ticket-item"
 import { ticketsPath } from "@/paths";
-import Link from "next/link";
+
 
 type TicketPageProps = {
   params: Promise<{
@@ -33,9 +35,8 @@ const TicketPage = async ({ params }: TicketPageProps) => {
   }
 
   return (
-    <div className = "animate-fade-from-left">
-      <h2 className="text-lg">{ticket.title}</h2>
-      <p className="text-sm">{ticket.content}</p>
+    <div className = "flex justify-center animate-fade-from-left">
+      <TicketItem ticket={ticket} isDetail={true} />
     </div>
   );
 };
