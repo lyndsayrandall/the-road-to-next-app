@@ -1,12 +1,13 @@
 import "./globals.css";
-import { LucideKanban } from "lucide-react";
+
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Inter } from "next/font/google";
-import Link from "next/link";
+
 import { Header } from "@/components/header";
-import { buttonVariants } from "@/components/ui/button"
-import { cn } from "@/lib/utils"
-import { homePath , ticketsPath } from "@/paths";
+
+import { cn } from "@/lib/utils";
+import { ThemeProvider } from "@/components/theme/theme-provider";
+
 
 const inter = Inter({subsets:['latin'],variable:'--font-sans'});
 
@@ -28,19 +29,21 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
 
   return (
-    <html lang="en" className={cn("font-sans", inter.variable)}>
+    <html lang="en" 
+          className={cn("font-sans", inter.variable)}
+          suppressHydrationWarning >
       <body className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}> 
-
-        <Header />
-
-        <main 
-          className=" min-h-screen flex-1
-                      overflow-y-auto overflow-x-hidden
-                      py-24 px-8
-                      bg-secondary/20
-                      flex flex-col">
-          {children}
-        </main>
+        <ThemeProvider>
+          <Header />
+          <main 
+            className=" min-h-screen flex-1
+                        overflow-y-auto overflow-x-hidden
+                        py-24 px-8
+                        bg-secondary/20
+                        flex flex-col">
+            {children}
+          </main>
+        </ThemeProvider>
       </body>
     </html>
   );
