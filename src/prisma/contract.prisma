@@ -1,0 +1,27 @@
+// use prisma-8
+
+model Ticket {
+  id        Int          @id @default(autoincrement())
+  createdAt temporal.CreatedAt
+  updatedAt temporal.UpdatedAt
+  title     String(storage: varchar, length: 100)
+  content   String(storage: varchar, length: 1024)
+  status    TicketStatus @default(OPEN)
+
+  @@rls
+  @@map("tickets") // Optional: maps to a lowercase plural table name in Supabase
+
+}
+
+enum TicketStatus {
+  OPEN = "OPEN"
+  IN_PROGRESS = "IN_PROGRESS"
+  DONE = "DONE"
+}
+
+// model User {
+//   id    Int     @id @default(autoincrement())
+//   email String  @unique
+
+//   @@rls
+// }
