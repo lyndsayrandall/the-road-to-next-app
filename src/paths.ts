@@ -9,5 +9,5 @@ export const homePath = () : Route =>
 export const ticketsPath = () : Route =>
     "/tickets";
 
-export const ticketPath = (ticketId: string) : Route =>
+export const ticketPath = (ticketId: number) : Route =>
     `/tickets/${ticketId}`  as Route;// note the agave is used here as variable loaded

@@ -15,7 +15,7 @@ import { getTicket } from "@/features/ticket/queries/get-ticket";
 
 type TicketPageProps = {
   params: Promise<{
-    ticketId: string;
+    ticketId: number;
   }>;
 };
 
