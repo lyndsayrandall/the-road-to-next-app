@@ -6,15 +6,17 @@ import contractJson from './contract.json' with { type: 'json' };
 
 type SupabaseDb = Awaited<ReturnType<typeof supabase<Contract>>>;
 
-let dbPromise: Promise<SupabaseDb> | null = null;
+const globalForPrisma = globalThis as unknown as {
+  dbPromise: Promise<SupabaseDb> | undefined;
+};
 
 export function getDb(): Promise<SupabaseDb> {
-  if (!dbPromise) {
-    dbPromise = supabase({
+  if (!globalForPrisma.dbPromise) {
+    globalForPrisma.dbPromise = supabase({
       contract: contractFromJson<Contract>(contractJson),
       url: process.env['DATABASE_URL']!,
       jwksUrl: process.env['SUPABASE_JWKS_URL']!,
     });
   }
-  return dbPromise;
+  return globalForPrisma.dbPromise;
 }

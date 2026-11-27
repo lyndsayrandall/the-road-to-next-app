@@ -26,13 +26,16 @@ const TicketItem =( {ticket, isDetail}: TicketItemProps) => {
 
     return(
       <div className={clsx("w-full flex gap-x-1", {
-        "max-w-[30%]": isDetail,
-        "max-w-[15%]": !isDetail,
+        "max-w-[40%]": isDetail,
+        "max-w-[30%]": !isDetail,
       })}>
         <Card key={ticket.id}  className = "w-full ">
           <CardHeader>
               <CardTitle className="flex gap-x-2">
                 <span>{TICKET_ICONS[ticket.status]}</span>
+                <span className="italic text-purple-700">
+                  &ensp;{ticket.id}&emsp;
+                </span>
                 <h3 className="truncate font-semibold">{ticket.title}</h3>
               </CardTitle>
             </CardHeader>
