@@ -10,6 +10,21 @@ async function main() {
     db = await getDb();
     const serviceDb = db.asServiceRole();
 
+    const truncatePlan = serviceDb.raw.sql`
+        TRUNCATE TABLE "public"."tickets" CASCADE
+      `
+        .affectedCount()
+        .build();
+
+    const resetSeqPlan = serviceDb.raw.sql`
+        SELECT setval(pg_get_serial_sequence('"public"."tickets"', 'id'), 1, false)
+      `
+        .affectedCount()
+        .build();
+
+await serviceDb.execute(truncatePlan);
+await serviceDb.execute(resetSeqPlan);
+
     const tickets = await serviceDb.orm.public.Ticket.createAll([
       {
         title: 'Fix login redirect loop',
