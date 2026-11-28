@@ -1,11 +1,7 @@
+// types/ticket.ts
 
+import type { Scalars } from "@prisma/orm-postgres/family-contract/types";
+import type { Models } from "@/prisma/contract";
 
-export type TicketStatus = "OPEN" | "DONE" | "IN_PROGRESS"
-
-
-export type Ticket ={
-    id: number;
-    title: string;
-    content: string;
-    status : TicketStatus;
-}
+export type Ticket = Scalars<Models.public_Ticket>;
+export type TicketStatus = Ticket["status"];
